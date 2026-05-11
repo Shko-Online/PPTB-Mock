@@ -1,0 +1,30 @@
+{
+  "name": "@shko.online/pptb-mock",
+  "version": "0.1.0",
+  "description": "Mocking library to help with testing Power Platform ToolBox tools",
+  "keywords": [
+    "pptb",
+    "mock"
+  ],
+  "homepage": "https://github.com/Shko-Online/PPTB-Mock#readme",
+  "bugs": {
+    "url": "https://github.com/Shko-Online/PPTB-Mock/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shko-Online/PPTB-Mock.git"
+  },
+  "license": "Apache-2.0",
+  "author": "Shko Online <sales@shko.online>",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@pptb/types": "^1.2.1",
+    "@types/sinon": "^21.0.1",
+    "sinon": "^22.0.0",
+    "typescript": "^5.9.3"
+  }
+}
