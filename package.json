@@ -27,7 +27,6 @@
   },
   "scripts": {
     "build": "vite build",
-    "publish": "npm run build && npm publish --access public",
     "test": "vitest"
   },
   "dependencies": {
