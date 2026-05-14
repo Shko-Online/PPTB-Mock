@@ -14,9 +14,9 @@
    limitations under the License.
  */
 
-import { API, EntityRelatedMetadataPath, EntityRelatedMetadataResponse, MetadataOperationOptions } from '@pptb/types/dataverseAPI';
+import { API, EntityRelatedMetadataPath } from '@pptb/types/dataverseAPI';
 import { SinonMethodStub, SinonMethodStubOfGeneric } from '../ToolboxAPI/helpers';
-import { SinonStub, stub } from 'sinon';
+import { stub } from 'sinon';
 
 /**
  * Dataverse Web API for CRUD operations, queries, and metadata

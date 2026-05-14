@@ -35,7 +35,7 @@ class FileSystemAPIMock implements FileSystemAPI {
         this.readText = stub();
         this.readText.resolves("");
         this.readBinary = stub();
-        this.readBinary.resolves(Uint8Array.from([]).buffer);
+        this.readBinary.rejects("Please mock this yourselves. We don't want a dependency on node types");
         this.exists = stub();
         this.exists.resolves(false);
         this.stat = stub();
