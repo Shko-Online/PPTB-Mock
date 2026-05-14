@@ -28,7 +28,13 @@ export class UtilsAPIMock implements UtilsAPI {
     executeParallel: SinonMethodStubOfGeneric<any, UtilsAPI['executeParallel']>;
     showLoading: SinonMethodStub<UtilsAPI['showLoading']>;
     hideLoading: SinonMethodStub<UtilsAPI['hideLoading']>;
+    /** Medium delay in milliseconds for executeParallel */
+    __mediumDelay: number;
+    /** Variation for delay of executeParallel in ms */
+    __delayVariation: number;
     constructor() {
+        this.__delayVariation = 500;
+        this.__mediumDelay = 500;
         this.showNotification = stub();
         this.showNotification.resolves();
         this.copyToClipboard = stub();
@@ -36,7 +42,16 @@ export class UtilsAPIMock implements UtilsAPI {
         this.getCurrentTheme = stub();
         this.getCurrentTheme.resolves("light");
         this.executeParallel = stub();
-        this.executeParallel.resolves([]);
+        this.executeParallel.callsFake((...promises) => {
+            let delay = this.__mediumDelay ?? 0;
+            if (this.__delayVariation && (delay - this.__delayVariation > 0)) {
+                const sign = Number.parseInt((Math.random()*10).toFixed(0))%2 > 0 ? 1: -1;
+                delay += Number.parseInt((sign*this.__delayVariation/2 * Math.random()).toFixed(0));
+            }
+            return new Promise(resolve => {
+                setTimeout(() => resolve(Promise.all(promises)), delay);
+            })
+        });
         this.showLoading = stub();
         this.showLoading.resolves();
         this.hideLoading = stub();
