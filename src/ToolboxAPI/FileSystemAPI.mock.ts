@@ -21,7 +21,7 @@ import { SinonMethodStub } from "./helpers";
 /**
  * FileSystem namespace - filesystem operations for tools
  */
-class FileSystemAPIMock implements FileSystemAPI {
+export class FileSystemAPIMock implements FileSystemAPI {
     readText: SinonMethodStub<FileSystemAPI['readText']>;
     readBinary: SinonMethodStub<FileSystemAPI['readBinary']>;
     exists: SinonMethodStub<FileSystemAPI['exists']>;
@@ -52,5 +52,3 @@ class FileSystemAPIMock implements FileSystemAPI {
         this.selectPath.resolves(null);
     }
 }
-
-export default FileSystemAPIMock;

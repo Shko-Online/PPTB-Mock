@@ -14,4 +14,6 @@
    limitations under the License.
  */
 
-export * as DataverseAPIMock from "./DataverseAPI.mock";
+
+export { DataverseAPIMock } from "./DataverseAPI.mock";
+

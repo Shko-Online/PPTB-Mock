@@ -21,7 +21,7 @@ import { SinonMethodStub } from "./helpers";
 /**
  * Connections namespace - restricted access for tools
  */
-class ConnectionsAPIMock implements ConnectionsAPI {
+export class ConnectionsAPIMock implements ConnectionsAPI {
     getActiveConnection: SinonMethodStub<ConnectionsAPI['getActiveConnection']>;
     getSecondaryConnection: SinonMethodStub<ConnectionsAPI['getSecondaryConnection']>;
 
@@ -38,5 +38,3 @@ class ConnectionsAPIMock implements ConnectionsAPI {
         this.getSecondaryConnection.resolves(null);
     }
 }
-
-export default ConnectionsAPIMock;

@@ -21,7 +21,7 @@ import { stub } from "sinon";
 /**
  * Settings namespace - context-aware tool settings All settings operations automatically use the current tool's ID
  */
-class SettingsAPIMock implements SettingsAPI {
+export class SettingsAPIMock implements SettingsAPI {
     get: SinonMethodStub<SettingsAPI['get']>;
     getAll: SinonMethodStub<SettingsAPI['getAll']>;
     set: SinonMethodStub<SettingsAPI['set']>;
@@ -37,5 +37,3 @@ class SettingsAPIMock implements SettingsAPI {
         this.setAll.resolves();
     }
 }
-
-export default SettingsAPIMock;

@@ -21,7 +21,7 @@ import { stub } from "sinon";
 /**
  * Terminal namespace - context-aware terminal operations
  */
-class TerminalAPIMock implements TerminalAPI {
+export class TerminalAPIMock implements TerminalAPI {
     create: SinonMethodStub<TerminalAPI['create']>;
     execute: SinonMethodStub<TerminalAPI['execute']>;
     close: SinonMethodStub<TerminalAPI['close']>;
@@ -43,5 +43,3 @@ class TerminalAPIMock implements TerminalAPI {
         this.setVisibility.resolves();
     }
 }
-
-export default TerminalAPIMock;

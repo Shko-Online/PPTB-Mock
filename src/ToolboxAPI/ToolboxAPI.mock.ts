@@ -15,16 +15,16 @@
  */
 
 import { API } from "@pptb/types/toolboxAPI";
-import ConnectionsAPIMock from "./ConnectionsAPI.mock";
-import UtilsAPIMock from "./UtilsAPI.mock";
-import FileSystemAPIMock from "./FileSystemAPI.mock";
-import SettingsAPIMock from "./SettingsAPI.mock";
-import TerminalAPIMock from "./TerminalAPI.mock";
-import EventsAPIMock from "./EventsAPI.mock";
+import { ConnectionsAPIMock } from "./ConnectionsAPI.mock";
+import { EventsAPIMock } from "./EventsAPI.mock";
+import { FileSystemAPIMock } from "./FileSystemAPI.mock";
+import { SettingsAPIMock } from "./SettingsAPI.mock";
 import { SinonMethodStub } from "./helpers";
+import { TerminalAPIMock } from "./TerminalAPI.mock";
+import { UtilsAPIMock } from "./UtilsAPI.mock";
 import { stub } from "sinon";
 
-class ToolboxAPIMock implements API {
+export class ToolboxAPIMock implements API {
     connections: ConnectionsAPIMock;
     utils: UtilsAPIMock;
     fileSystem: FileSystemAPIMock;
@@ -47,5 +47,3 @@ class ToolboxAPIMock implements API {
         });
     }
 }
-
-export default ToolboxAPIMock;

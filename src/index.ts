@@ -14,12 +14,13 @@
    limitations under the License.
  */
 
-export { DataverseAPIMock } from "./DataverseAPI";
+export {DataverseAPIMock} from "./DataverseAPI";
 export { 
     ConnectionsAPIMock, 
     EventsAPIMock, 
-    FileSystemMock, 
+    FileSystemAPIMock, 
     SettingsAPIMock, 
     TerminalAPIMock, 
-    ToolboxAPIMock 
+    ToolboxAPIMock,
+    UtilsAPIMock 
 } from "./ToolboxAPI";

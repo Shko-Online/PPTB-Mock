@@ -4,7 +4,6 @@ import dts from 'vite-plugin-dts';
 
 export default defineConfig({
   plugins: [dts({
-    insertTypesEntry:true,
     include: [
       'src/**/*.ts'
     ]

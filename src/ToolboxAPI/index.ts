@@ -14,9 +14,10 @@
    limitations under the License.
  */
 
-export * as ConnectionsAPIMock from "./ConnectionsAPI.mock";
-export * as EventsAPIMock from "./EventsAPI.mock"
-export * as FileSystemMock from "./FileSystemAPI.mock";
-export * as SettingsAPIMock from "./SettingsAPI.mock";
-export * as TerminalAPIMock from "./TerminalAPI.mock";
-export * as ToolboxAPIMock from "./ToolboxAPI.mock";
+export { ConnectionsAPIMock } from "./ConnectionsAPI.mock";
+export { EventsAPIMock } from "./EventsAPI.mock"
+export { FileSystemAPIMock } from "./FileSystemAPI.mock";
+export { SettingsAPIMock } from "./SettingsAPI.mock";
+export { TerminalAPIMock } from "./TerminalAPI.mock";
+export { ToolboxAPIMock } from "./ToolboxAPI.mock";
+export { UtilsAPIMock } from "./UtilsAPI.mock";

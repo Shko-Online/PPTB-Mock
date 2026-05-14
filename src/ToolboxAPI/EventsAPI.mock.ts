@@ -21,7 +21,7 @@ import { stub } from "sinon";
 /**
  * Events namespace - tool-specific event handling
  */
-class EventsAPIMock implements EventsAPI {
+export class EventsAPIMock implements EventsAPI {
     getHistory: SinonMethodStub<EventsAPI['getHistory']>;
     on: SinonMethodStub<EventsAPI['on']>;
     off: SinonMethodStub<EventsAPI['off']>;
@@ -33,5 +33,3 @@ class EventsAPIMock implements EventsAPI {
         this.getHistory = stub();
         this.getHistory.resolves([]);}
 }
-
-export default EventsAPIMock;

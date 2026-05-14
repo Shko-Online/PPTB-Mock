@@ -15,29 +15,31 @@
  */
 
 import { UtilsAPI } from "@pptb/types/toolboxAPI";
-import { SinonStub, stub } from "sinon";
-import { SinonMethodStub } from "./helpers";
+import { SinonMethodStub, SinonMethodStubOfGeneric } from "./helpers";
+import { stub } from "sinon";
 
 /**
  * Utils namespace - utility functions for tools
  */
-class UtilsAPIMock implements UtilsAPI {
+export class UtilsAPIMock implements UtilsAPI {
     showNotification: SinonMethodStub<UtilsAPI['showNotification']>;
     copyToClipboard: SinonMethodStub<UtilsAPI['copyToClipboard']>;
-    getCurrentTheme: SinonStub<[], Promise<"light" | "dark">>;
-    executeParallel: SinonStub<[], Promise<any[]>>;
-    showLoading: SinonStub<[message?: string], Promise<void>>;
-    hideLoading: SinonStub<[], Promise<void>>;
+    getCurrentTheme: SinonMethodStub<UtilsAPI['getCurrentTheme']>;
+    executeParallel: SinonMethodStubOfGeneric<any, UtilsAPI['executeParallel']>;
+    showLoading: SinonMethodStub<UtilsAPI['showLoading']>;
+    hideLoading: SinonMethodStub<UtilsAPI['hideLoading']>;
     constructor() {
         this.showNotification = stub();
         this.showNotification.resolves();
         this.copyToClipboard = stub();
         this.copyToClipboard.resolves();
-        this.getCurrentTheme = stub<[], Promise<"light" | "dark">>().resolves("light");
-        this.executeParallel = stub<[], Promise<any[]>>().resolves([]);
-        this.showLoading = stub<[message?: string], Promise<void>>().resolves();
-        this.hideLoading = stub<[], Promise<void>>().resolves();
+        this.getCurrentTheme = stub();
+        this.getCurrentTheme.resolves("light");
+        this.executeParallel = stub();
+        this.executeParallel.resolves([]);
+        this.showLoading = stub();
+        this.showLoading.resolves();
+        this.hideLoading = stub();
+        this.hideLoading.resolves();
     }
 }
-
-export default UtilsAPIMock;

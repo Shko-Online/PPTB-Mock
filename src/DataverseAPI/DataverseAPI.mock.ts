@@ -21,7 +21,7 @@ import { stub } from 'sinon';
 /**
  * Dataverse Web API for CRUD operations, queries, and metadata
  */
-class DataverseAPIMock implements API {
+export class DataverseAPIMock implements API {
     create: SinonMethodStub<API['create']>;
     retrieve: SinonMethodStub<API['retrieve']>;
     update: SinonMethodStub<API['update']>;
@@ -147,5 +147,3 @@ class DataverseAPIMock implements API {
         this.orderOption.rejects(pleaseMockThis);
     }
 }
-
-export default DataverseAPIMock;
