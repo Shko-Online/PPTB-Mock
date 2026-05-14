@@ -24,3 +24,11 @@ export {
     ToolboxAPIMock,
     UtilsAPIMock 
 } from "./ToolboxAPI";
+
+export type { 
+    SinonMethodStub, 
+    SinonMethodStubOfGeneric, 
+    SinonStubGeneric, 
+    ParameterOfGeneric, 
+    ReturnTypeOfGeneric 
+} from "./ToolboxAPI";

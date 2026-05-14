@@ -31,5 +31,6 @@ export class EventsAPIMock implements EventsAPI {
         this.off = stub();
         this.off.returns();
         this.getHistory = stub();
-        this.getHistory.resolves([]);}
+        this.getHistory.resolves([]);
+    }
 }

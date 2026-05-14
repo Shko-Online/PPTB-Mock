@@ -21,3 +21,11 @@ export { SettingsAPIMock } from "./SettingsAPI.mock";
 export { TerminalAPIMock } from "./TerminalAPI.mock";
 export { ToolboxAPIMock } from "./ToolboxAPI.mock";
 export { UtilsAPIMock } from "./UtilsAPI.mock";
+
+export type { 
+    SinonMethodStub, 
+    SinonMethodStubOfGeneric, 
+    SinonStubGeneric, 
+    ParameterOfGeneric, 
+    ReturnTypeOfGeneric 
+} from "./helpers";

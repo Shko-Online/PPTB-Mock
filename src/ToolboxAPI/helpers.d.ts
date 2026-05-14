@@ -16,7 +16,7 @@
 
 import { SinonStub } from "sinon";
 
-interface SinonStubGeneric<TGeneric, TArgs extends any[], TReturn> extends SinonStub<TArgs, TReturn> {
+export interface SinonStubGeneric<TGeneric, TArgs extends any[], TReturn> extends SinonStub<TArgs, TReturn> {
         <TGeneric>(...args: TArgs): TReturn;
       /**
          * Makes the stub return the provided @param obj value.
@@ -25,8 +25,8 @@ interface SinonStubGeneric<TGeneric, TArgs extends any[], TReturn> extends Sinon
         returns(obj: TReturn): SinonStubGeneric<TGeneric, TArgs, TReturn>;
 }
 
-type ParameterOfGeneric<T2, T extends <T2>(...args: any) => any> = T extends <T2>(...args: infer P) => any ? P : never ;
-type ReturnTypeOfGeneric<T2, T extends <T2>(...args: any) => any> = T extends <T2>(...args: any) => infer R ? R : never;
+export type ParameterOfGeneric<T2, T extends <T2>(...args: any) => any> = T extends <T2>(...args: infer P) => any ? P : never ;
+export type ReturnTypeOfGeneric<T2, T extends <T2>(...args: any) => any> = T extends <T2>(...args: any) => infer R ? R : never;
 
 export type SinonMethodStub<T extends (...args:any[])=>any> = SinonStub<Parameters<T>, ReturnType<T>>;
 
