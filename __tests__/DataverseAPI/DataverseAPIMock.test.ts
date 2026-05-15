@@ -14,19 +14,35 @@
    limitations under the License.
  */
 
-import { expect, test, describe } from 'vitest';
+import { expect, test, describe, vi } from 'vitest';
 import { DataverseAPIMock } from '../../src/DataverseAPI/DataverseAPI.mock';
 
 describe('DataverseAPIMock', () => {
 
-    test('error is thrown if method is not mocked', async () => {
+    test('error is thrown if method is not mocked and arguments are written to console', async () => {
         const dataverseAPI = new DataverseAPIMock();
+        const mockedWarn = vi.spyOn(console, 'warn');
         await expect(
             async () => {
                 await dataverseAPI.retrieve('account', 'noId');
             })
             .rejects
-            .toThrow('Please mock the retrieve method based on your needs');
+            .toThrow("Please mock the 'dataverseAPI.retrieve' method based on your needs");
+        expect(mockedWarn).toHaveBeenCalledWith("'dataverseAPI.retrieve' called with args:", 'account', 'noId');
+        mockedWarn.mockReset();
+    });
+
+    test('error is thrown if method is not mocked and no arguments is written to console', async () => {
+        const dataverseAPI = new DataverseAPIMock();
+        const mockedWarn = vi.spyOn(console, 'warn');
+        await expect(
+            async () => {
+                await dataverseAPI.publishCustomizations();
+            })
+            .rejects
+            .toThrow("Please mock the 'dataverseAPI.publishCustomizations' method based on your needs");
+        expect(mockedWarn).toHaveBeenCalledWith("'dataverseAPI.publishCustomizations' called with no args");
+        mockedWarn.mockReset();
     });
 
 });

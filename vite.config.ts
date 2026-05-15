@@ -4,7 +4,7 @@ import dts from 'vite-plugin-dts';
 
 export default defineConfig({
   plugins: [dts({
-    entryRoot:"./src",
+    entryRoot: "./src",
     copyDtsFiles: true,
     include: [
       'src/**/*.ts'
@@ -17,4 +17,5 @@ export default defineConfig({
       name: 'index',
       fileName: 'index',
     }
-}});
+  }
+});

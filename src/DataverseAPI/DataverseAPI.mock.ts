@@ -18,6 +18,13 @@ import { API, EntityRelatedMetadataPath } from '@pptb/types/dataverseAPI';
 import { SinonMethodStub, SinonMethodStubOfGeneric } from '../ToolboxAPI/helpers';
 import { stub } from 'sinon';
 
+const pleaseMockThisFactory = (functionName: string)=>{
+    return (...args:unknown[])=>{
+        console.warn(args.length ? `'${functionName}' called with args:` : `'${functionName}' called with no args`, ...args);
+        throw new Error(`Please mock the '${functionName}' method based on your needs`);
+    }
+}
+
 /**
  * Dataverse Web API for CRUD operations, queries, and metadata
  */
@@ -65,84 +72,84 @@ export class DataverseAPIMock implements API {
 
     constructor() {
         this.create = stub();
-        this.create.callsFake(()=> {throw new Error("Please mock the create method based on your needs")});
+        this.create.callsFake(pleaseMockThisFactory('dataverseAPI.create'));
         this.retrieve = stub();
-        this.retrieve.callsFake(()=> {throw new Error("Please mock the retrieve method based on your needs")});
+        this.retrieve.callsFake(pleaseMockThisFactory('dataverseAPI.retrieve'));
         this.update = stub();
-        this.update.callsFake(()=> {throw new Error("Please mock the update method based on your needs")});
+        this.update.callsFake(pleaseMockThisFactory('dataverseAPI.update'));
         this.delete = stub();
-        this.delete.callsFake(()=> {throw new Error("Please mock the delete method based on your needs")});
+        this.delete.callsFake(pleaseMockThisFactory('dataverseAPI.delete'));
         this.fetchXmlQuery = stub();
-        this.fetchXmlQuery.callsFake(()=> {throw new Error("Please mock the fetchXmlQuery method based on your needs")});
+        this.fetchXmlQuery.callsFake(pleaseMockThisFactory('dataverseAPI.fetchXmlQuery'));
         this.retrieveMultiple = stub();
-        this.retrieveMultiple.callsFake(()=> {throw new Error("Please mock the retrieveMultiple method based on your needs")});
+        this.retrieveMultiple.callsFake(pleaseMockThisFactory('dataverseAPI.retrieveMultiple'));
         this.execute = stub();
-        this.execute.callsFake(()=> {throw new Error("Please mock the execute method based on your needs")});;
+        this.execute.callsFake(pleaseMockThisFactory('dataverseAPI.execute'));
         this.getEntityMetadata = stub();
-        this.getEntityMetadata.callsFake(()=> {throw new Error("Please mock the getEntityMetadata method based on your needs")});
+        this.getEntityMetadata.callsFake(pleaseMockThisFactory('dataverseAPI.getEntityMetadata'));
         this.getAllEntitiesMetadata = stub();
-        this.getAllEntitiesMetadata.callsFake(()=> {throw new Error("Please mock the getAllEntitiesMetadata method based on your needs")});;
+        this.getAllEntitiesMetadata.callsFake(pleaseMockThisFactory('dataverseAPI.getAllEntitiesMetadata'));
         this.getEntityRelatedMetadata = stub();
-        this.getEntityRelatedMetadata.callsFake(()=> {throw new Error("Please mock the getEntityRelatedMetadata method based on your needs")});;
+        this.getEntityRelatedMetadata.callsFake(pleaseMockThisFactory('dataverseAPI.getEntityRelatedMetadata'));
         this.getSolutions = stub();
-        this.getSolutions.callsFake(()=> {throw new Error("Please mock the getSolutions method based on your needs")});;
+        this.getSolutions.callsFake(pleaseMockThisFactory('dataverseAPI.getSolutions'));
         this.queryData = stub();
-        this.queryData.callsFake(()=> {throw new Error("Please mock the queryData method based on your needs")});;
+        this.queryData.callsFake(pleaseMockThisFactory('dataverseAPI.queryData'));
         this.publishCustomizations = stub();
-        this.publishCustomizations.callsFake(()=> {throw new Error("Please mock the publishCustomizations method based on your needs")});;
+        this.publishCustomizations.callsFake(pleaseMockThisFactory('dataverseAPI.publishCustomizations'));;
         this.createMultiple = stub();
-        this.createMultiple.callsFake(()=> {throw new Error("Please mock the createMultiple method based on your needs")});;
+        this.createMultiple.callsFake(pleaseMockThisFactory('dataverseAPI.createMultiple'));
         this.updateMultiple = stub();
-        this.updateMultiple.callsFake(()=> {throw new Error("Please mock the updateMultiple method based on your needs")});;
+        this.updateMultiple.callsFake(pleaseMockThisFactory('dataverseAPI.updateMultiple'));
         this.getEntitySetName = stub();
-        this.getEntitySetName.callsFake(()=> {throw new Error("Please mock the getEntitySetName method based on your needs")});;
+        this.getEntitySetName.callsFake(pleaseMockThisFactory('dataverseAPI.getEntitySetName'));
         this.associate = stub();
-        this.associate.callsFake(()=> {throw new Error("Please mock the associate method based on your needs")});;
+        this.associate.callsFake(pleaseMockThisFactory('dataverseAPI.associate'));
         this.disassociate = stub();
-        this.disassociate.callsFake(()=> {throw new Error("Please mock the disassociate method based on your needs")});;
+        this.disassociate.callsFake(pleaseMockThisFactory('dataverseAPI.disassociate'));
         this.deploySolution = stub();
-        this.deploySolution.callsFake(()=> {throw new Error("Please mock the deploySolution method based on your needs")});;
+        this.deploySolution.callsFake(pleaseMockThisFactory('dataverseAPI.deploySolution'));
         this.getImportJobStatus = stub();
-        this.getImportJobStatus.callsFake(()=> {throw new Error("Please mock the getImportJobStatus method based on your needs")});;
+        this.getImportJobStatus.callsFake(pleaseMockThisFactory('dataverseAPI.getImportJobStatus'));
         this.buildLabel = stub();
-        this.buildLabel.callsFake(()=> {throw new Error("Please mock the buildLabel method based on your needs")});;
+        this.buildLabel.callsFake(pleaseMockThisFactory('dataverseAPI.buildLabel'));
         this.getCSDLDocument = stub();
-        this.getCSDLDocument.callsFake(()=> {throw new Error("Please mock the getCSDLDocument method based on your needs")});;
+        this.getCSDLDocument.callsFake(pleaseMockThisFactory('dataverseAPI.getCSDLDocument'));
         this.getAttributeODataType = stub();
-        this.getAttributeODataType.callsFake(()=> {throw new Error("Please mock the getAttributeODataType method based on your needs")});
+        this.getAttributeODataType.callsFake(pleaseMockThisFactory('dataverseAPI.getAttributeODataType'));
         this.createEntityDefinition = stub();
-        this.createEntityDefinition.callsFake(()=> {throw new Error("Please mock the createEntityDefinition method based on your needs")});
+        this.createEntityDefinition.callsFake(pleaseMockThisFactory('dataverseAPI.createEntityDefinition'));
         this.updateEntityDefinition = stub();
-        this.updateEntityDefinition.callsFake(()=> {throw new Error("Please mock the updateEntityDefinition method based on your needs")});
+        this.updateEntityDefinition.callsFake(pleaseMockThisFactory('dataverseAPI.updateEntityDefinition'));
         this.deleteEntityDefinition = stub();
-        this.deleteEntityDefinition.callsFake(()=> {throw new Error("Please mock the deleteEntityDefinition method based on your needs")});
+        this.deleteEntityDefinition.callsFake(pleaseMockThisFactory('dataverseAPI.deleteEntityDefinition'));
         this.createAttribute = stub();
-        this.createAttribute.callsFake(()=> {throw new Error("Please mock the createAttribute method based on your needs")});
+        this.createAttribute.callsFake(pleaseMockThisFactory('dataverseAPI.createAttribute'));
         this.updateAttribute = stub();
-        this.updateAttribute.callsFake(()=> {throw new Error("Please mock the updateAttribute method based on your needs")});
+        this.updateAttribute.callsFake(pleaseMockThisFactory('dataverseAPI.updateAttribute'));
         this.deleteAttribute = stub();
-        this.deleteAttribute.callsFake(()=> {throw new Error("Please mock the deleteAttribute method based on your needs")});
+        this.deleteAttribute.callsFake(pleaseMockThisFactory('dataverseAPI.deleteAttribute'));
         this.createPolymorphicLookupAttribute = stub();
-        this.createPolymorphicLookupAttribute.callsFake(()=> {throw new Error("Please mock the createPloymorphicLookupAttribute method based on your needs")});
+        this.createPolymorphicLookupAttribute.callsFake(pleaseMockThisFactory('dataverseAPI.createPolymorphicLookupAttribute'));
         this.createRelationship = stub();
-        this.createRelationship.callsFake(()=> {throw new Error("Please mock the createRelationship method based on your needs")});
+        this.createRelationship.callsFake(pleaseMockThisFactory('dataverseAPI.createRelationship'));
         this.updateRelationship = stub();
-        this.updateRelationship.callsFake(()=> {throw new Error("Please mock the updateRelationship method based on your needs")});
+        this.updateRelationship.callsFake(pleaseMockThisFactory('dataverseAPI.updateRelationship'));
         this.deleteRelationship = stub();
-        this.deleteRelationship.callsFake(()=> {throw new Error("Please mock the deleteRelationship method based on your needs")});
+        this.deleteRelationship.callsFake(pleaseMockThisFactory('dataverseAPI.deleteRelationship'));
         this.createGlobalOptionSet = stub();
-        this.createGlobalOptionSet.callsFake(()=> {throw new Error("Please mock the createGlobalOptionSet method based on your needs")});
+        this.createGlobalOptionSet.callsFake(pleaseMockThisFactory('dataverseAPI.createGlobalOptionSet'));
         this.updateGlobalOptionSet = stub();
-        this.updateGlobalOptionSet.callsFake(()=> {throw new Error("Please mock the updateGlobalOptionSet method based on your needs")});
+        this.updateGlobalOptionSet.callsFake(pleaseMockThisFactory('dataverseAPI.updateGlobalOptionSet'));
         this.deleteGlobalOptionSet = stub();
-        this.deleteGlobalOptionSet.callsFake(()=> {throw new Error("Please mock the deleteGlobalOptionSet method based on your needs")});
+        this.deleteGlobalOptionSet.callsFake(pleaseMockThisFactory('dataverseAPI.deleteGlobalOptionSet'));
         this.insertOptionValue = stub();
-        this.insertOptionValue.callsFake(()=> {throw new Error("Please mock the insertOptionValue method based on your needs")});
+        this.insertOptionValue.callsFake(pleaseMockThisFactory('dataverseAPI.insertOptionValue'));
         this.updateOptionValue = stub();
-        this.updateOptionValue.callsFake(()=> {throw new Error("Please mock the updateOptionValue method based on your needs")});
+        this.updateOptionValue.callsFake(pleaseMockThisFactory('dataverseAPI.updateOptionValue'));
         this.deleteOptionValue = stub();
-        this.deleteOptionValue.callsFake(()=> {throw new Error("Please mock the deleteOptionValue method based on your needs")});
+        this.deleteOptionValue.callsFake(pleaseMockThisFactory('dataverseAPI.deleteOptionValue'));
         this.orderOption = stub();
-        this.orderOption.callsFake(()=> {throw new Error("Please mock the orderOption method based on your needs")});
+        this.orderOption.callsFake(pleaseMockThisFactory('dataverseAPI.orderOption'));
     }
 }
