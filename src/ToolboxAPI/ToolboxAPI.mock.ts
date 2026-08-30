@@ -18,6 +18,7 @@ import { API } from "@pptb/types/toolboxAPI";
 import { ConnectionsAPIMock } from "./ConnectionsAPI.mock";
 import { EventsAPIMock } from "./EventsAPI.mock";
 import { FileSystemAPIMock } from "./FileSystemAPI.mock";
+import { InvocationAPIMock } from "./InvocationAPI.mock";
 import { SettingsAPIMock } from "./SettingsAPI.mock";
 import { SinonMethodStub } from "./helpers";
 import { TerminalAPIMock } from "./TerminalAPI.mock";
@@ -26,12 +27,13 @@ import { stub } from "sinon";
 
 export class ToolboxAPIMock implements API {
     connections: ConnectionsAPIMock;
-    utils: UtilsAPIMock;
+    events: EventsAPIMock;
     fileSystem: FileSystemAPIMock;
+    getToolContext: SinonMethodStub<API['getToolContext']>;
+    invocation: InvocationAPIMock;
     settings: SettingsAPIMock;
     terminal: TerminalAPIMock;
-    events: EventsAPIMock;
-    getToolContext: SinonMethodStub<API['getToolContext']>;
+    utils: UtilsAPIMock;
     constructor() {
         this.connections = new ConnectionsAPIMock();
         this.utils = new UtilsAPIMock();
@@ -45,5 +47,6 @@ export class ToolboxAPIMock implements API {
             instanceId: "mockInstanceId",
             "connectionUrl": "https://mock.environment.url",
         });
+        this.invocation = new InvocationAPIMock();
     }
 }

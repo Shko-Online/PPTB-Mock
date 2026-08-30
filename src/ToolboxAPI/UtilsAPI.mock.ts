@@ -26,8 +26,7 @@ export class UtilsAPIMock implements UtilsAPI {
     copyToClipboard: SinonMethodStub<UtilsAPI['copyToClipboard']>;
     getCurrentTheme: SinonMethodStub<UtilsAPI['getCurrentTheme']>;
     executeParallel: SinonMethodStubOfGeneric<any, UtilsAPI['executeParallel']>;
-    showLoading: SinonMethodStub<UtilsAPI['showLoading']>;
-    hideLoading: SinonMethodStub<UtilsAPI['hideLoading']>;
+    openInConnectionBrowser: SinonMethodStub<UtilsAPI['openInConnectionBrowser']>;
     /** Medium delay in milliseconds for executeParallel */
     __mediumDelay: number;
     /** Variation for delay of executeParallel in ms */
@@ -52,9 +51,7 @@ export class UtilsAPIMock implements UtilsAPI {
                 setTimeout(() => resolve(Promise.all(promises)), delay);
             })
         });
-        this.showLoading = stub();
-        this.showLoading.resolves();
-        this.hideLoading = stub();
-        this.hideLoading.resolves();
+        this.openInConnectionBrowser = stub();
+        this.openInConnectionBrowser.resolves();
     }
 }
