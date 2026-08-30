@@ -15,15 +15,9 @@
  */
 
 import { API, EntityRelatedMetadataPath } from '@pptb/types/dataverseAPI';
+import { pleaseMockThisFactory } from '../pleaseMockThisFactory';
 import { SinonMethodStub, SinonMethodStubOfGeneric } from '../ToolboxAPI/helpers';
 import { stub } from 'sinon';
-
-const pleaseMockThisFactory = (functionName: string)=>{
-    return (...args:unknown[])=>{
-        console.warn(args.length ? `'${functionName}' called with args:` : `'${functionName}' called with no args`, ...args);
-        throw new Error(`Please mock the '${functionName}' method based on your needs`);
-    }
-}
 
 /**
  * Dataverse Web API for CRUD operations, queries, and metadata

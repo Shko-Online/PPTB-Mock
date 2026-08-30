@@ -14,21 +14,44 @@
    limitations under the License.
  */
 
-export {DataverseAPIMock} from "./DataverseAPI";
-export { 
-    ConnectionsAPIMock, 
-    EventsAPIMock, 
-    FileSystemAPIMock, 
-    SettingsAPIMock, 
-    TerminalAPIMock, 
-    ToolboxAPIMock,
-    UtilsAPIMock 
+export { DataverseAPIMock } from "./DataverseAPI";
+
+export {
+  AnalyticsMock,
+  AppManagementMock,
+  AuthorizationMock,
+  CategoryClientMock,
+  ConnectivityMock,
+  CopilotStudioMock,
+  DynamicsMock,
+  EnvironmentManagementMock,
+  GovernanceMock,
+  LicensingMock,
+  PowerAppsMock,
+  PowerAutomateMock,
+  PowerPagesMock,
+  PowerPlatformAPIMock,
+  ResourceQueryMock,
+  UserManagementMock,
+  WorkflowAgentsMock,
+} from "./PowerPlatformAPI";
+
+export {
+  ConnectionsAPIMock,
+  EventsAPIMock,
+  FileSystemAPIMock,
+  SettingsAPIMock,
+  TerminalAPIMock,
+  ToolboxAPIMock,
+  UtilsAPIMock,
 } from "./ToolboxAPI";
 
-export type { 
-    SinonMethodStub, 
-    SinonMethodStubOfGeneric, 
-    SinonStubGeneric, 
-    ParameterOfGeneric, 
-    ReturnTypeOfGeneric 
+export type {
+  SinonMethodStub,
+  SinonMethodStubOfGeneric,
+  SinonStubGeneric,
+  ParameterOfGeneric,
+  ReturnTypeOfGeneric,
 } from "./ToolboxAPI";
+
+export { pleaseMockThisFactory } from "./pleaseMockThisFactory";
