@@ -23,6 +23,7 @@ import { SettingsAPIMock } from "./SettingsAPI.mock";
 import { SinonMethodStub } from "./helpers";
 import { TerminalAPIMock } from "./TerminalAPI.mock";
 import { UtilsAPIMock } from "./UtilsAPI.mock";
+import { WorkersAPIMock } from "./WorkersAPI.mock";
 import { stub } from "sinon";
 
 export class ToolboxAPIMock implements API {
@@ -36,6 +37,7 @@ export class ToolboxAPIMock implements API {
     settings: SettingsAPIMock;
     terminal: TerminalAPIMock;
     utils: UtilsAPIMock;
+    workers: WorkersAPIMock;
     constructor() {
         this.connections = new ConnectionsAPIMock();
         this.utils = new UtilsAPIMock();
@@ -48,9 +50,12 @@ export class ToolboxAPIMock implements API {
             toolId: "mockToolId",
             instanceId: "mockInstanceId",
             "connectionUrl": "https://mock.environment.url",
+            connectionIds: ["mockConnectionId", null],
+            connectionUrls: ["https://mock.environment.url", null],
         });
         this.preventClose = stub();
         this.releasePreventClose = stub();
         this.invocation = new InvocationAPIMock();
+        this.workers = new WorkersAPIMock();
     }
 }

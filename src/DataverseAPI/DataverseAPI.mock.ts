@@ -38,6 +38,8 @@ export class DataverseAPIMock implements API {
     publishCustomizations: SinonMethodStub<API['publishCustomizations']>;
     createMultiple: SinonMethodStub<API['createMultiple']>;
     updateMultiple: SinonMethodStub<API['updateMultiple']>;
+    executeBatch: SinonMethodStub<API['executeBatch']>;
+    executeTransaction: SinonMethodStub<API['executeTransaction']>;
     getEntitySetName: SinonMethodStub<API['getEntitySetName']>;
     associate: SinonMethodStub<API['associate']>;
     disassociate: SinonMethodStub<API['disassociate']>;
@@ -95,6 +97,10 @@ export class DataverseAPIMock implements API {
         this.createMultiple.callsFake(pleaseMockThisFactory('dataverseAPI.createMultiple'));
         this.updateMultiple = stub();
         this.updateMultiple.callsFake(pleaseMockThisFactory('dataverseAPI.updateMultiple'));
+        this.executeBatch = stub();
+        this.executeBatch.callsFake(pleaseMockThisFactory('dataverseAPI.executeBatch'));
+        this.executeTransaction = stub();
+        this.executeTransaction.callsFake(pleaseMockThisFactory('dataverseAPI.executeTransaction'));
         this.getEntitySetName = stub();
         this.getEntitySetName.callsFake(pleaseMockThisFactory('dataverseAPI.getEntitySetName'));
         this.associate = stub();

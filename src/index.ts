@@ -44,6 +44,7 @@ export {
   TerminalAPIMock,
   ToolboxAPIMock,
   UtilsAPIMock,
+  WorkersAPIMock,
 } from "./ToolboxAPI";
 
 export type {

@@ -35,4 +35,20 @@ describe('ConnectionsAPIMock', () => {
         const secondaryConnection = await connectionsAPIMock.getSecondaryConnection();
         expect(secondaryConnection).toBeNull();
     });
+
+    test('getConnections returns the primary connection and an empty secondary slot', async () => {
+        const connectionsAPIMock = new ConnectionsAPIMock();
+        const connections = await connectionsAPIMock.getConnections();
+        expect(connections).toEqual([await connectionsAPIMock.getActiveConnection(), null]);
+    });
+
+    test('getConnection resolves legacy aliases and slot indexes from getConnections', async () => {
+        const connectionsAPIMock = new ConnectionsAPIMock();
+        const third = { id: "thirdId", name: "Third", url: "https://third.url", environment: "Test" as const };
+        connectionsAPIMock.getConnections.resolves([null, null, third]);
+        expect(await connectionsAPIMock.getConnection("primary")).toBeNull();
+        expect(await connectionsAPIMock.getConnection("secondary")).toBeNull();
+        expect(await connectionsAPIMock.getConnection(2)).toEqual(third);
+        expect(await connectionsAPIMock.getConnection(5)).toBeNull();
+    });
 });

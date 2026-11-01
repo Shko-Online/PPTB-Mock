@@ -14,7 +14,7 @@
    limitations under the License.
  */
 
-import { ConnectionsAPI } from "@pptb/types/toolboxAPI";
+import { Connection, ConnectionsAPI } from "@pptb/types/toolboxAPI";
 import { stub } from "sinon";
 import { SinonMethodStub } from "./helpers";
 
@@ -24,17 +24,29 @@ import { SinonMethodStub } from "./helpers";
 export class ConnectionsAPIMock implements ConnectionsAPI {
     getActiveConnection: SinonMethodStub<ConnectionsAPI['getActiveConnection']>;
     getSecondaryConnection: SinonMethodStub<ConnectionsAPI['getSecondaryConnection']>;
+    getConnections: SinonMethodStub<ConnectionsAPI['getConnections']>;
+    getConnection: SinonMethodStub<ConnectionsAPI['getConnection']>;
 
     constructor() {
-        this.getActiveConnection = stub();
-        this.getActiveConnection.resolves({
+        const mockConnection: Connection = {
             id: "mockConnectionId",
             name: "Mock Connection",
             url: "https://mock.environment.url",
             environment: "Dev",
             createdAt: new Date().toISOString(),
-        });
+        };
+        this.getActiveConnection = stub();
+        this.getActiveConnection.resolves(mockConnection);
         this.getSecondaryConnection = stub();
         this.getSecondaryConnection.resolves(null);
+        this.getConnections = stub();
+        this.getConnections.resolves([mockConnection, null]);
+        this.getConnection = stub();
+        // Resolves the slot from getConnections so overriding that stub keeps both consistent
+        this.getConnection.callsFake(async (target) => {
+            const index = target === "primary" ? 0 : target === "secondary" ? 1 : target;
+            const connections = await this.getConnections();
+            return connections[index] ?? null;
+        });
     }
 }

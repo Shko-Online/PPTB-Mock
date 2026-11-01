@@ -45,4 +45,15 @@ describe('DataverseAPIMock', () => {
         mockedWarn.mockReset();
     });
 
+    test('executeBatch and executeTransaction throw until mocked', async () => {
+        const dataverseAPI = new DataverseAPIMock();
+        const mockedWarn = vi.spyOn(console, 'warn').mockImplementation(() => { });
+        await expect(async () => await dataverseAPI.executeBatch([{ method: 'GET', url: 'accounts' }]))
+            .rejects
+            .toThrow("Please mock the 'dataverseAPI.executeBatch' method based on your needs");
+        await expect(async () => await dataverseAPI.executeTransaction([], 2, { 'MSCRM.BypassCustomPluginExecution': 'true' }))
+            .rejects
+            .toThrow("Please mock the 'dataverseAPI.executeTransaction' method based on your needs");
+        mockedWarn.mockRestore();
+    });
 });

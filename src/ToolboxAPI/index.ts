@@ -21,6 +21,7 @@ export { SettingsAPIMock } from "./SettingsAPI.mock";
 export { TerminalAPIMock } from "./TerminalAPI.mock";
 export { ToolboxAPIMock } from "./ToolboxAPI.mock";
 export { UtilsAPIMock } from "./UtilsAPI.mock";
+export { WorkersAPIMock } from "./WorkersAPI.mock";
 
 export type { 
     SinonMethodStub, 
